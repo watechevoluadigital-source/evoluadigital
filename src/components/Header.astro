@@ -1,7 +1,13 @@
 ---
 import BrandMark from './BrandMark.astro';
+import { withBase } from '../utils/paths';
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath =
+  basePath && pathname.startsWith(basePath)
+    ? pathname.slice(basePath.length) || '/'
+    : pathname;
 
 const links = [
   { href: '/', label: 'Início' },
@@ -13,8 +19,8 @@ const links = [
 ] as const;
 
 function isActive(href: string) {
-  if (href === '/') return pathname === '/';
-  return pathname === href || pathname.startsWith(`${href}/`);
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(`${href}/`);
 }
 ---
 
@@ -25,7 +31,7 @@ function isActive(href: string) {
     class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 md:gap-4 lg:px-8"
   >
     <a
-      href="/"
+      href={withBase('/')}
       class="min-w-0 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <BrandMark />
@@ -35,7 +41,7 @@ function isActive(href: string) {
       {
         links.map(({ href, label }) => (
           <a
-            href={href}
+            href={withBase(href)}
             class:list={[
               'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
               isActive(href)
@@ -51,7 +57,7 @@ function isActive(href: string) {
     </nav>
 
     <a
-      href="/contato"
+      href={withBase('/contato')}
       class="hidden rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright md:inline-flex"
     >
       Diagnóstico grátis
@@ -85,7 +91,7 @@ function isActive(href: string) {
         {
           links.map(({ href, label }) => (
             <a
-              href={href}
+              href={withBase(href)}
               class:list={[
                 'block rounded-lg px-3 py-2.5 text-sm font-medium',
                 isActive(href)
@@ -99,7 +105,7 @@ function isActive(href: string) {
           ))
         }
         <a
-          href="/contato"
+          href={withBase('/contato')}
           class="mt-2 block rounded-lg bg-accent px-3 py-2.5 text-center text-sm font-semibold text-navy-950"
         >
           Diagnóstico grátis

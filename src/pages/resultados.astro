@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 
 const cases = [
   {
@@ -83,7 +84,7 @@ const cases = [
 
     <div class="mt-10 flex justify-center">
       <a
-        href="/contato"
+        href={withBase('/contato')}
         class="inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
       >
         Pedir apresentação

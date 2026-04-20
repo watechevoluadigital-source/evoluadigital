@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 
 const valores = [
   {
@@ -114,13 +115,13 @@ const valores = [
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a
-          href="/contato"
+          href={withBase('/contato')}
           class="inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
         >
           Solicitar diagnóstico gratuito
         </a>
         <a
-          href="/insights"
+          href={withBase('/insights')}
           class="inline-flex rounded-lg border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-accent/40 hover:bg-white/10"
         >
           Ver insights

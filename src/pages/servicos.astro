@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 
 const servicos = [
   {
@@ -134,7 +135,7 @@ const servicos = [
             </dl>
             <div class="mt-8 border-t border-white/10 pt-8">
               <a
-                href="/contato"
+                href={withBase('/contato')}
                 class="inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
               >
                 Quero diagnóstico gratuito — {s.titulo}
@@ -154,7 +155,7 @@ const servicos = [
         para o seu estágio.
       </p>
       <a
-        href="/contato"
+        href={withBase('/contato')}
         class="mt-6 inline-flex rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
       >
         Falar com um especialista

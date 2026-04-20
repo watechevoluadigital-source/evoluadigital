@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../utils/paths';
+
 const itens = [
   {
     titulo: 'Tráfego pago',
@@ -40,7 +42,7 @@ const itens = [
       </h2>
     </div>
     <a
-      href="/servicos"
+      href={withBase('/servicos')}
       class="text-sm font-semibold text-accent transition hover:text-accent-bright"
     >
       Ver todos os serviços →
@@ -51,7 +53,7 @@ const itens = [
       itens.map((item) => (
         <li>
           <a
-            href={item.href}
+            href={withBase(item.href)}
             class="group flex h-full flex-col rounded-2xl border border-white/10 bg-navy-900/35 p-6 transition hover:border-accent/35 hover:bg-navy-900/55"
           >
             <h3 class="text-lg font-semibold text-white group-hover:text-accent">

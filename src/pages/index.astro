@@ -8,6 +8,7 @@ import CtaBand from '../components/CtaBand.astro';
 import ProvaSocial from '../components/ProvaSocial.astro';
 import LeadMagnet from '../components/LeadMagnet.astro';
 import { whatsappUrl } from '../data/contato';
+import { withBase } from '../utils/paths';
 
 const heroChecks = [
   'Tráfego pago (Meta, Google) com foco em conversão e CAC',
@@ -93,13 +94,13 @@ const segmentos = [
         class="mt-10 flex flex-wrap gap-3 motion-safe:animate-fade-up motion-safe:[animation-delay:160ms]"
       >
         <a
-          href="/contato"
+          href={withBase('/contato')}
           class="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3.5 text-base font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
         >
           Solicitar diagnóstico gratuito
         </a>
         <a
-          href="/servicos"
+          href={withBase('/servicos')}
           class="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-base font-semibold text-white transition hover:border-accent/40 hover:bg-white/10"
         >
           Ver o que fazemos
@@ -153,8 +154,8 @@ const segmentos = [
     <CtaBand
       titulo="Quer gerar mais leads com previsibilidade?"
       texto="Peça o diagnóstico gratuito — devolvemos com prioridades claras, sem enrolação."
-      primario={{ href: '/contato', label: 'Quero diagnóstico gratuito' }}
-      secundario={{ href: '/servicos', label: 'Ver serviços' }}
+      primario={{ href: withBase('/contato'), label: 'Quero diagnóstico gratuito' }}
+      secundario={{ href: withBase('/servicos'), label: 'Ver serviços' }}
     />
   </div>
 
@@ -210,7 +211,7 @@ const segmentos = [
       titulo="Prefere falar com um especialista agora?"
       texto="Chame no WhatsApp ou envie o formulário — respondemos em até 1 dia útil (meta comercial)."
       primario={{ href: whatsappUrl, label: 'Falar no WhatsApp', external: true }}
-      secundario={{ href: '/contato', label: 'Ir para o formulário' }}
+      secundario={{ href: withBase('/contato'), label: 'Ir para o formulário' }}
     />
   </div>
 
@@ -238,13 +239,13 @@ const segmentos = [
       </div>
       <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
         <a
-          href="/contato"
+          href={withBase('/contato')}
           class="inline-flex justify-center rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
         >
           Receber estratégia personalizada
         </a>
         <a
-          href="/insights"
+          href={withBase('/insights')}
           class="inline-flex justify-center rounded-lg border border-white/15 px-6 py-3.5 text-base font-semibold text-white transition hover:border-accent/40 hover:bg-white/5"
         >
           Ver insights e conteúdo

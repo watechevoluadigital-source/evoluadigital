@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../utils/paths';
+
 const itens = [
   'Leitura rápida do seu funil e canais atuais',
   '3 prioridades objetivas para as próximas semanas',
@@ -41,13 +43,13 @@ const itens = [
     </div>
     <div class="mt-8 flex shrink-0 flex-col gap-3 lg:mt-0">
       <a
-        href="/contato"
+        href={withBase('/contato')}
         class="inline-flex justify-center rounded-lg bg-accent px-8 py-3.5 text-center text-base font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
       >
         Quero meu diagnóstico gratuito
       </a>
       <a
-        href="/contato#form-contato"
+        href={withBase('/contato#form-contato')}
         class="text-center text-sm font-medium text-silver-400 underline-offset-2 hover:text-white hover:underline"
       >
         Ou preencha o formulário rápido

@@ -1,5 +1,6 @@
 ---
 import { whatsappUrl } from '../data/contato';
+import { withBase } from '../utils/paths';
 ---
 
 <div
@@ -23,7 +24,7 @@ import { whatsappUrl } from '../data/contato';
       WhatsApp
     </a>
     <a
-      href="/contato"
+      href={withBase('/contato')}
       class="flex flex-1 items-center justify-center rounded-lg bg-accent py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
     >
       Diagnóstico grátis

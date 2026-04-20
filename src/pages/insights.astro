@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 
 /** Troque por artigos reais (MDX, CMS ou páginas estáticas) quando o blog estiver ativo. */
 const artigos = [
@@ -40,7 +41,7 @@ const artigos = [
       <p class="mt-4 text-lg text-silver-400">
         Conteúdo para atrair tráfego, mostrar método e ajudar você a decidir com
         clareza. Novos textos entram aqui conforme publicarmos — enquanto isso,
-        o <a class="font-medium text-accent hover:text-accent-bright" href="/contato"
+        o <a class="font-medium text-accent hover:text-accent-bright" href={withBase('/contato')}
           >diagnóstico gratuito</a
         > já adianta muito da conversa.
       </p>
@@ -86,7 +87,7 @@ const artigos = [
         objetivas para o seu marketing.
       </p>
       <a
-        href="/contato"
+        href={withBase('/contato')}
         class="mt-6 inline-flex rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
       >
         Solicitar diagnóstico gratuito
