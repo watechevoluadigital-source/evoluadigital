@@ -1,4 +1,5 @@
-# Habilitar no repositório: Settings → Pages → Source: GitHub Actions
+# Settings → Pages → Source: GitHub Actions
+# Settings → Actions → General → Workflow permissions: "Read and write permissions"
 name: Deploy to GitHub Pages
 
 on:
@@ -22,16 +23,12 @@ jobs:
       ASTRO_SITE: https://watechevoluadigital-source.github.io
       ASTRO_BASE: /evoluadigital/
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build e upload (Astro)
+        uses: withastro/action@v6
         with:
-          node-version: '20'
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+          node-version: 20
 
   deploy:
     needs: build
@@ -40,5 +37,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Publicar no GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
