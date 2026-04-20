@@ -25,27 +25,30 @@ function isActive(href: string) {
 ---
 
 <header
-  class="sticky top-0 z-50 border-b border-white/5 bg-navy-950/85 backdrop-blur-md"
+  class="sticky top-0 z-50 border-b border-white/5 bg-[linear-gradient(180deg,rgba(5,10,20,0.96),rgba(10,22,40,0.9))] backdrop-blur-xl"
 >
   <div
     class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 md:gap-4 lg:px-8"
   >
     <a
       href={withBase('/')}
-      class="min-w-0 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      class="min-w-0 shrink-0 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2 shadow-[0_10px_30px_-18px_rgba(14,165,233,0.55)] transition hover:border-accent/25 hover:bg-white/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       <BrandMark />
     </a>
 
-    <nav class="hidden items-center gap-1 md:flex" aria-label="Principal">
+    <nav
+      class="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex"
+      aria-label="Principal"
+    >
       {
         links.map(({ href, label }) => (
           <a
             href={withBase(href)}
             class:list={[
-              'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+              'rounded-full px-4 py-2 text-sm font-medium transition-all',
               isActive(href)
-                ? 'bg-white/10 text-white'
+                ? 'bg-accent text-navy-950 shadow-glow'
                 : 'text-silver-300 hover:bg-white/5 hover:text-white',
             ]}
             aria-current={isActive(href) ? 'page' : undefined}
@@ -58,14 +61,15 @@ function isActive(href: string) {
 
     <a
       href={withBase('/contato')}
-      class="hidden rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright md:inline-flex"
+      class="hidden items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-navy-950 shadow-glow transition hover:-translate-y-0.5 hover:bg-accent-bright md:inline-flex"
     >
+      <span class="flex h-2.5 w-2.5 rounded-full bg-navy-950/80" aria-hidden="true"></span>
       Diagnóstico grátis
     </a>
 
     <details class="group relative md:hidden">
       <summary
-        class="flex cursor-pointer list-none items-center gap-2 rounded-lg border border-white/10 bg-navy-800/80 px-3 py-2 text-sm font-medium text-silver-100 marker:hidden"
+        class="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2.5 text-sm font-medium text-silver-100 shadow-[0_10px_25px_-18px_rgba(14,165,233,0.45)] marker:hidden transition hover:border-accent/30 hover:bg-white/[0.06]"
       >
         <span class="sr-only">Abrir menu</span>
         <svg
@@ -85,15 +89,23 @@ function isActive(href: string) {
         Menu
       </summary>
       <nav
-        class="absolute right-0 top-full z-50 mt-2 w-56 rounded-xl border border-white/10 bg-navy-900/95 p-2 shadow-xl backdrop-blur-md"
+        class="absolute right-0 top-full z-50 mt-3 w-[min(22rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(10,22,40,0.98),rgba(5,10,20,0.98))] p-3 shadow-[0_24px_60px_-24px_rgba(14,165,233,0.35)] backdrop-blur-xl"
         aria-label="Mobile"
       >
+        <div class="mb-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Evolua Digital
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-silver-400">
+            Diagnóstico rápido e marketing orientado a resultado.
+          </p>
+        </div>
         {
           links.map(({ href, label }) => (
             <a
               href={withBase(href)}
               class:list={[
-                'block rounded-lg px-3 py-2.5 text-sm font-medium',
+                'block rounded-xl px-3 py-3 text-sm font-medium transition-colors',
                 isActive(href)
                   ? 'bg-accent/15 text-white'
                   : 'text-silver-300 hover:bg-white/5 hover:text-white',
@@ -104,12 +116,20 @@ function isActive(href: string) {
             </a>
           ))
         }
-        <a
-          href={withBase('/contato')}
-          class="mt-2 block rounded-lg bg-accent px-3 py-2.5 text-center text-sm font-semibold text-navy-950"
-        >
-          Diagnóstico grátis
-        </a>
+        <div class="mt-3 grid grid-cols-1 gap-2">
+          <a
+            href={withBase('/contato')}
+            class="block rounded-xl bg-accent px-3 py-3 text-center text-sm font-semibold text-navy-950 shadow-glow"
+          >
+            Solicitar diagnóstico grátis
+          </a>
+          <a
+            href={withBase('/servicos')}
+            class="block rounded-xl border border-white/10 bg-white/[0.03] px-3 py-3 text-center text-sm font-semibold text-white"
+          >
+            Ver serviços
+          </a>
+        </div>
       </nav>
     </details>
   </div>
