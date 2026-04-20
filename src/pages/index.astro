@@ -1,0 +1,255 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DorESolucao from '../components/DorESolucao.astro';
+import ProcessoSection from '../components/ProcessoSection.astro';
+import ServicosDestaque from '../components/ServicosDestaque.astro';
+import FaqAgencia from '../components/FaqAgencia.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ProvaSocial from '../components/ProvaSocial.astro';
+import LeadMagnet from '../components/LeadMagnet.astro';
+import { whatsappUrl } from '../data/contato';
+
+const heroChecks = [
+  'Tráfego pago (Meta, Google) com foco em conversão e CAC',
+  'Conteúdo e redes alinhados à sua oferta — não genérico',
+  'Relatórios que a diretoria entende — não só vanity metrics',
+] as const;
+
+const segmentos = [
+  'E-commerce',
+  'Serviços & B2B',
+  'Marcas locais',
+  'Profissionais liberais',
+] as const;
+---
+
+<Layout
+  title="Evolua Digital"
+  description="Ajudamos empresas a gerar mais demanda qualificada com marketing digital orientado a dados. Diagnóstico gratuito, tráfego pago e páginas que convertem."
+>
+  <section
+    class="relative overflow-hidden border-b border-white/5 px-4 py-20 sm:px-6 sm:py-28 lg:px-8"
+    aria-labelledby="hero-heading"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_70%_20%,rgba(14,165,233,0.12),transparent)] motion-safe:animate-shimmer"
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-6xl">
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.2em] text-accent motion-safe:animate-fade-up"
+      >
+        Proposta de valor em 5 segundos
+      </p>
+      <h1
+        id="hero-heading"
+        class="mt-4 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl sm:leading-tight lg:text-5xl motion-safe:animate-fade-up motion-safe:[animation-delay:80ms]"
+      >
+        Ajudamos <span class="text-metal">empresas e negócios</span> a
+        <span class="text-white">gerar mais demanda qualificada</span> com
+        <span class="text-metal">tráfego pago, conteúdo e páginas</span>
+        orientados a dados.
+      </h1>
+      <p
+        class="mt-5 max-w-2xl text-base font-medium leading-relaxed text-silver-300 sm:text-lg motion-safe:animate-fade-up motion-safe:[animation-delay:100ms]"
+      >
+        <strong class="font-semibold text-silver-200">Para quem:</strong> e-commerce,
+        serviços, B2B e marcas locais que precisam de previsibilidade e lead
+        melhor — não só post bonito.
+      </p>
+      <p
+        class="mt-3 max-w-2xl text-sm leading-relaxed text-silver-500 motion-safe:animate-fade-up motion-safe:[animation-delay:110ms]"
+      >
+        <strong class="text-silver-400">Benefício direto:</strong> menos
+        desperdício em mídia, mensagem alinhada à venda e clareza do que fazer
+        na próxima semana.
+      </p>
+      <ul
+        class="mt-8 max-w-xl space-y-3 motion-safe:animate-fade-up motion-safe:[animation-delay:130ms]"
+        aria-label="O que você ganha ao trabalhar conosco"
+      >
+        {
+          heroChecks.map((texto) => (
+            <li class="flex gap-3 text-sm text-silver-300">
+              <span
+                class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent"
+                aria-hidden="true"
+              >
+                <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </span>
+              {texto}
+            </li>
+          ))
+        }
+      </ul>
+      <div
+        class="mt-10 flex flex-wrap gap-3 motion-safe:animate-fade-up motion-safe:[animation-delay:160ms]"
+      >
+        <a
+          href="/contato"
+          class="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3.5 text-base font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
+        >
+          Solicitar diagnóstico gratuito
+        </a>
+        <a
+          href="/servicos"
+          class="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-base font-semibold text-white transition hover:border-accent/40 hover:bg-white/10"
+        >
+          Ver o que fazemos
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-[#25D366]/35 bg-[#25D366]/10 px-6 py-3.5 text-base font-semibold text-[#25D366] transition hover:bg-[#25D366]/20"
+        >
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <DorESolucao />
+
+  <section
+    class="border-b border-white/5 py-10 sm:py-12"
+    aria-labelledby="segmentos-heading"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <h2
+        id="segmentos-heading"
+        class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-silver-500"
+      >
+        Para quem trabalhamos
+      </h2>
+      <ul
+        class="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3"
+      >
+        {
+          segmentos.map((s) => (
+            <li>
+              <span class="inline-block rounded-full border border-white/10 bg-navy-900/40 px-4 py-2 text-sm font-medium text-silver-200">
+                {s}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mx-auto mt-6 max-w-2xl text-center text-xs text-silver-500">
+        Cada projeto nasce do seu estágio: quem começa no digital ou quem já
+        investe em anúncio e precisa de mais eficiência.
+      </p>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <CtaBand
+      titulo="Quer gerar mais leads com previsibilidade?"
+      texto="Peça o diagnóstico gratuito — devolvemos com prioridades claras, sem enrolação."
+      primario={{ href: '/contato', label: 'Quero diagnóstico gratuito' }}
+      secundario={{ href: '/servicos', label: 'Ver serviços' }}
+    />
+  </div>
+
+  <section
+    class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
+    aria-labelledby="pilares-heading"
+  >
+    <h2 id="pilares-heading" class="text-2xl font-bold text-white sm:text-3xl">
+      Benefícios reais — não jargão de slide
+    </h2>
+    <p class="mt-3 max-w-2xl text-silver-400">
+      O que muda no seu dia a dia quando o marketing deixa de ser achismo e
+      vira método.
+    </p>
+    <ul class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <li
+        class="rounded-2xl border border-white/10 bg-navy-900/40 p-6 backdrop-blur-sm"
+      >
+        <h3 class="text-lg font-semibold text-accent">Clareza em métricas</h3>
+        <p class="mt-2 text-sm leading-relaxed text-silver-400">
+          Indicadores ligados a receita, lead e eficiência — não só impressão e
+          clique.
+        </p>
+      </li>
+      <li
+        class="rounded-2xl border border-white/10 bg-navy-900/40 p-6 backdrop-blur-sm"
+      >
+        <h3 class="text-lg font-semibold text-accent">Execução integrada</h3>
+        <p class="mt-2 text-sm leading-relaxed text-silver-400">
+          Anúncio, criativo e página falando a mesma língua — melhor CAC e mais
+          conversões.
+        </p>
+      </li>
+      <li
+        class="rounded-2xl border border-white/10 bg-navy-900/40 p-6 backdrop-blur-sm sm:col-span-2 lg:col-span-1"
+      >
+        <h3 class="text-lg font-semibold text-accent">Evolução contínua</h3>
+        <p class="mt-2 text-sm leading-relaxed text-silver-400">
+          Testes, otimização e decisões semanais — o digital muda; seu plano
+          acompanha.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <LeadMagnet />
+  <ProcessoSection />
+  <ProvaSocial />
+  <ServicosDestaque />
+
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <CtaBand
+      titulo="Prefere falar com um especialista agora?"
+      texto="Chame no WhatsApp ou envie o formulário — respondemos em até 1 dia útil (meta comercial)."
+      primario={{ href: whatsappUrl, label: 'Falar no WhatsApp', external: true }}
+      secundario={{ href: '/contato', label: 'Ir para o formulário' }}
+    />
+  </div>
+
+  <FaqAgencia />
+
+  <section
+    class="border-t border-white/5 bg-gradient-to-br from-navy-900/50 via-navy-950 to-navy-900/30 px-4 py-20 sm:px-6 lg:px-8"
+    aria-labelledby="cta-final-heading"
+  >
+    <div
+      class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"
+    >
+      <div>
+        <h2
+          id="cta-final-heading"
+          class="text-2xl font-bold text-white sm:text-3xl"
+        >
+          Pronto para converter atenção em conversa?
+        </h2>
+        <p class="mt-3 max-w-xl text-silver-400">
+          O próximo passo é simples: diagnóstico gratuito ou uma mensagem com
+          seu contexto. A partir daí você recebe retorno objetivo — com ou sem
+          proposta.
+        </p>
+      </div>
+      <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
+        <a
+          href="/contato"
+          class="inline-flex justify-center rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
+        >
+          Receber estratégia personalizada
+        </a>
+        <a
+          href="/insights"
+          class="inline-flex justify-center rounded-lg border border-white/15 px-6 py-3.5 text-base font-semibold text-white transition hover:border-accent/40 hover:bg-white/5"
+        >
+          Ver insights e conteúdo
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

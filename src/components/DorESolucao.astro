@@ -1,0 +1,78 @@
+---
+const dores = [
+  'Investe em anúncio mas o lead chega caro ou de baixa qualidade?',
+  'Site ou landing devagar, confuso, e o tráfego “não converte”?',
+  'Falta clareza: não sabe o que escalar, pausar ou testar em seguida?',
+] as const;
+
+const solucoes = [
+  'Mídia paga com mensuração sólida, criativos e páginas alinhados à oferta.',
+  'Conteúdo e presença que sustentam confiança — sem perder foco em venda.',
+  'Rituais de relatório e priorização: você sabe o próximo passo e o porquê.',
+] as const;
+---
+
+<section
+  class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+  aria-labelledby="dor-solucao-heading"
+>
+  <h2
+    id="dor-solucao-heading"
+    class="sr-only"
+  >
+    Problemas que resolvemos e como ajudamos
+  </h2>
+  <div class="grid gap-10 lg:grid-cols-2 lg:gap-14">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wider text-silver-500">
+        A dor do seu lado
+      </p>
+      <p class="mt-2 text-xl font-bold text-white sm:text-2xl">
+        Se isso soa familiar, você não está sozinho
+      </p>
+      <ul class="mt-8 space-y-4">
+        {
+          dores.map((d) => (
+            <li class="flex gap-3 text-sm leading-relaxed text-silver-300">
+              <span
+                class="mt-1 h-2 w-2 shrink-0 rounded-full bg-red-400/80"
+                aria-hidden="true"
+              />
+              {d}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="rounded-2xl border border-white/10 bg-navy-900/40 p-6 sm:p-8">
+      <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+        Nossa resposta
+      </p>
+      <p class="mt-2 text-xl font-bold text-white sm:text-2xl">
+        Marketing digital com método — não improviso
+      </p>
+      <ul class="mt-8 space-y-4">
+        {
+          solucoes.map((s) => (
+            <li class="flex gap-3 text-sm leading-relaxed text-silver-300">
+              <span
+                class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent"
+                aria-hidden="true"
+              >
+                <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </span>
+              {s}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

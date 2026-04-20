@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#0a1628"/>
+  <path d="M6 22c3-6 10-11 18-12" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 8l4 3-3 3z" fill="#0ea5e9"/>
+  <text x="9" y="20" fill="#e2e8f0" font-size="9" font-weight="800" font-family="system-ui,sans-serif">RC</text>
+</svg>

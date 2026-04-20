@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const servicos = [
+  {
+    titulo: 'Tráfego pago',
+    oQueE:
+      'Gestão de campanhas em Meta Ads, Google Ads e canais complementares, com estrutura de conversões, públicos e criativos voltados a resultado.',
+    paraQuem:
+      'Negócios que precisam previsibilidade de lead ou venda e já investem (ou querem investir) em mídia com critério.',
+    resultado:
+      'Mais eficiência no investimento: melhor custo por lead ou por aquisição quando o funil acompanha.',
+    comoFunciona: [
+      'Auditoria rápida do que está no ar e do rastreio',
+      'Plano de campanhas, orçamento e mensagens de anúncio',
+      'Otimização contínua com relatórios acionáveis',
+    ],
+  },
+  {
+    titulo: 'Conteúdo e redes sociais',
+    oQueE:
+      'Calendário, roteiros e peças alinhados à sua oferta — para educar, gerar confiança e alimentar o funil.',
+    paraQuem:
+      'Marcas que precisam consistência sem perder foco em negócio; frequentemente combinado com tráfego pago.',
+    resultado:
+      'Presença profissional e mensagem coerente com a página e o anúncio — menos dispersão.',
+    comoFunciona: [
+      'Definição de pilares e tom de voz',
+      'Produção e publicação com ritmo combinado',
+      'Ajustes conforme performance e sazonalidade',
+    ],
+  },
+  {
+    titulo: 'Performance e landing pages',
+    oQueE:
+      'Páginas e jornadas pensadas para carregar rápido, comunicar a oferta com clareza e converter.',
+    paraQuem:
+      'Quem manda tráfego para página própria e sente que o gargalo é a página, não só o anúncio.',
+    resultado:
+      'Mais conversões com o mesmo tráfego — quando copy, layout e velocidade trabalham juntos.',
+    comoFunciona: [
+      'Estrutura da página e hierarquia da oferta',
+      'Copy orientada a CRO e prova social quando cabe',
+      'Pixels, eventos e testes quando fizer sentido',
+    ],
+  },
+  {
+    titulo: 'Consultoria e diagnóstico',
+    oQueE:
+      'Sessões e entregáveis para priorizar o que mexe no resultado quando você já tem time ou fornecedores.',
+    paraQuem:
+      'Empresas com operação interna ou várias agências que precisam de direção técnica e de negócio.',
+    resultado:
+      'Menos desperdício: lista clara do que mudar primeiro e como medir o impacto.',
+    comoFunciona: [
+      'Diagnóstico de funil, canais e mensuração',
+      'Playbook de ações priorizadas',
+      'Acompanhamento tático em ritmo combinado',
+    ],
+  },
+] as const;
+---
+
+<Layout
+  title="Serviços"
+  description="Tráfego pago, conteúdo, landing pages e consultoria — cada serviço com escopo claro, resultado esperado e CTA para diagnóstico gratuito."
+>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <header class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+        Serviços
+      </p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-white">
+        O que fazemos — direto ao ponto
+      </h1>
+      <p class="mt-4 text-lg text-silver-400">
+        Cada bloco abaixo responde: <strong class="font-medium text-silver-200"
+          >o que é</strong
+        >, <strong class="font-medium text-silver-200">para quem</strong>, <strong
+          class="font-medium text-silver-200">qual resultado</strong
+        > e <strong class="font-medium text-silver-200">como funciona</strong
+        >. Sem textão por textão.
+      </p>
+    </header>
+
+    <ul class="mt-16 space-y-12">
+      {
+        servicos.map((s) => (
+          <li class="rounded-2xl border border-white/10 bg-navy-900/35 p-8 backdrop-blur-sm lg:p-10">
+            <h2 class="text-2xl font-semibold text-white">{s.titulo}</h2>
+            <dl class="mt-8 grid gap-6 sm:grid-cols-2">
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wider text-accent">
+                  O que é
+                </dt>
+                <dd class="mt-2 text-sm leading-relaxed text-silver-300">
+                  {s.oQueE}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wider text-accent">
+                  Para quem é
+                </dt>
+                <dd class="mt-2 text-sm leading-relaxed text-silver-300">
+                  {s.paraQuem}
+                </dd>
+              </div>
+              <div class="sm:col-span-2">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-accent">
+                  Qual resultado entrega
+                </dt>
+                <dd class="mt-2 text-sm leading-relaxed text-silver-300">
+                  {s.resultado}
+                </dd>
+              </div>
+              <div class="sm:col-span-2">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-accent">
+                  Como funciona
+                </dt>
+                <dd class="mt-2">
+                  <ul class="space-y-2">
+                    {s.comoFunciona.map((passo) => (
+                      <li class="flex gap-2 text-sm text-silver-300">
+                        <span
+                          class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                          aria-hidden="true"
+                        />
+                        {passo}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+            <div class="mt-8 border-t border-white/10 pt-8">
+              <a
+                href="/contato"
+                class="inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
+              >
+                Quero diagnóstico gratuito — {s.titulo}
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div
+      class="mt-16 rounded-2xl border border-accent/25 bg-gradient-to-br from-navy-800/80 to-navy-900/80 p-8 text-center lg:p-10"
+    >
+      <p class="text-lg font-medium text-white">Não sabe por onde começar?</p>
+      <p class="mt-2 text-silver-400">
+        Peça o diagnóstico gratuito — indicamos o serviço certo (ou a combinação)
+        para o seu estágio.
+      </p>
+      <a
+        href="/contato"
+        class="mt-6 inline-flex rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
+      >
+        Falar com um especialista
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,100 @@
+---
+/**
+ * Depoimentos: substitua por citações reais com autorização.
+ * Números: só use métricas verificáveis; abaixo são âncoras de credibilidade sem inflar resultado.
+ */
+const credibilidade = [
+  { label: 'Metodologia', valor: '3 etapas', hint: 'Diagnóstico → Plano & execução → Medir & otimizar' },
+  { label: 'Foco', valor: 'CAC & conversão', hint: 'Indicadores ligados ao negócio, não só vaidade' },
+  { label: 'Comunicação', valor: 'Relatórios claros', hint: 'Você sabe o que mudou e o que vem a seguir' },
+] as const;
+
+const depoimentos = [
+  {
+    texto:
+      '“Organizaram campanhas e mensagem da landing na mesma linha. Pela primeira vez conseguimos enxergar o que puxar e o que cortar.”',
+    autor: 'Nome do cliente',
+    papel: 'Responsável comercial — substitua após autorização',
+  },
+  {
+    texto:
+      '“Resposta rápida e números que fazem sentido para a diretoria. Nada de relatório só com impressão.”',
+    autor: 'Nome do cliente',
+    papel: 'Marketing — substitua após autorização',
+  },
+] as const;
+---
+
+<section
+  class="border-y border-white/5 bg-navy-900/25 px-4 py-20 sm:px-6 lg:px-8"
+  aria-labelledby="prova-heading"
+>
+  <div class="mx-auto max-w-6xl">
+    <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+      Prova e autoridade
+    </p>
+    <h2
+      id="prova-heading"
+      class="mt-2 max-w-2xl text-2xl font-bold tracking-tight text-white sm:text-3xl"
+    >
+      Confiança antes do contrato
+    </h2>
+    <p class="mt-3 max-w-2xl text-sm text-silver-500">
+      Depoimentos e logos reais convertem mais — abaixo está o formato ideal; troque pelos seus
+      cases assim que tiver permissão.
+    </p>
+
+    <ul
+      class="mt-10 grid gap-4 sm:grid-cols-3"
+    >
+      {
+        credibilidade.map((c) => (
+          <li class="rounded-xl border border-white/10 bg-navy-950/50 p-5">
+            <p class="text-xs font-medium uppercase tracking-wider text-silver-500">
+              {c.label}
+            </p>
+            <p class="mt-2 text-lg font-bold text-white">{c.valor}</p>
+            <p class="mt-1 text-xs text-silver-500">{c.hint}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      {
+        depoimentos.map((d) => (
+          <figure class="rounded-2xl border border-white/10 bg-navy-900/35 p-6">
+            <blockquote>
+              <p class="text-sm leading-relaxed text-silver-200">{d.texto}</p>
+            </blockquote>
+            <figcaption class="mt-4 border-t border-white/10 pt-4 text-sm">
+              <span class="font-semibold text-white">{d.autor}</span>
+              <span class="mt-0.5 block text-xs text-silver-500">{d.papel}</span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="mt-12">
+      <p class="text-center text-xs font-semibold uppercase tracking-wider text-silver-500">
+        Marcas e negócios com os quais trabalhamos
+      </p>
+      <ul
+        class="mt-6 flex flex-wrap items-center justify-center gap-4"
+        aria-label="Logotipos de clientes — placeholders"
+      >
+        {
+          [1, 2, 3, 4].map((n) => (
+            <li class="flex h-14 w-28 items-center justify-center rounded-lg border border-dashed border-white/15 bg-white/[0.03] text-[10px] font-medium uppercase tracking-wide text-silver-600 sm:w-32">
+              Logo {n}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-4 text-center text-xs text-silver-600">
+        Substitua pelos logos reais quando possível — isso aumenta conversão de forma mensurável.
+      </p>
+    </div>
+  </div>
+</section>

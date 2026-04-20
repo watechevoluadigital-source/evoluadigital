@@ -1,0 +1,46 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileCta from '../components/StickyMobileCta.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Evolua Digital — agência de marketing digital focada em tráfego, conteúdo e performance.',
+} = Astro.props;
+
+const fullTitle =
+  title === 'Evolua Digital' ? title : `${title} | Evolua Digital`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#050a14" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>{fullTitle}</title>
+  </head>
+  <body class="bg-grid-fade bg-navy-950 pb-24 md:pb-0">
+    <a href="#conteudo-principal" class="skip-nav">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo-principal">
+      <slot />
+    </main>
+    <Footer />
+    <StickyMobileCta />
+  </body>
+</html>

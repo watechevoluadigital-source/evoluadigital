@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const valores = [
+  {
+    titulo: 'Transparência',
+    texto:
+      'O que medimos, como medimos e o que esperar em cada fase — sem promessa mágica.',
+  },
+  {
+    titulo: 'Parceria',
+    texto:
+      'Seu negócio não é “mais um contrato”. Queremos entender operação, margem e sazonalidade.',
+  },
+  {
+    titulo: 'Excelência em execução',
+    texto:
+      'Estratégia sem entrega é slide. Priorizamos o que entra no ar e gera aprendizado.',
+  },
+] as const;
+---
+
+<Layout
+  title="Sobre"
+  description="Por que confiar na Evolua Digital: visão, método e compromisso com resultado — marketing digital que vende a conversa, não só o deck."
+>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <header class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+        Sobre — pensado para gerar confiança
+      </p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-white">
+        Por que confiar na Evolua Digital?
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed text-silver-400">
+        Se você já gastou com agência ou anúncio e saiu com relatório bonito mas
+        negócio igual, <strong class="font-medium text-silver-200"
+          >o problema raramente é “falta de post”</strong
+        >. Costuma ser mensuração fraca, mensagem fora do funil ou página que não
+        fecha. A Evolua Digital existe para atacar isso com método — <strong
+          class="font-medium text-silver-200"
+          >tráfego, conteúdo e páginas na mesma direção</strong
+        >, com números que você usa para decidir.
+      </p>
+    </header>
+
+    <section
+      class="mt-16 rounded-2xl border border-accent/20 bg-navy-900/40 p-8 lg:p-10"
+      aria-labelledby="visao-heading"
+    >
+      <h2 id="visao-heading" class="text-xl font-semibold text-white">
+        Nossa visão
+      </h2>
+      <p class="mt-4 text-sm leading-relaxed text-silver-400">
+        Queremos que <span class="font-medium text-silver-200"
+          >marketing digital deixe de ser custo opaco</span
+        > e vire alavanca mensurável: você sabe quanto investiu, o que voltou e o
+        que testar na semana seguinte. O nome <span
+          class="font-medium text-silver-200">Evolua</span
+        > é o compromisso com evolução contínua — não com campanha pontual que
+        some do mapa.
+      </p>
+    </section>
+
+    <div class="mt-16 grid gap-12 lg:grid-cols-2 lg:items-start">
+      <section aria-labelledby="missao-heading">
+        <h2 id="missao-heading" class="text-xl font-semibold text-white">
+          O que isso significa na prática
+        </h2>
+        <p class="mt-4 text-sm leading-relaxed text-silver-400">
+          Ajudamos empresas e marcas a crescer no digital com campanhas
+          estruturadas, comunicação clara e indicadores ligados ao negócio — não
+          só ao algoritmo.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-silver-400">
+          <strong class="font-medium text-silver-200">Diferencial:</strong> menos
+          jargão, mais priorização. Direto ao que mexe em lead, venda ou
+          eficiência — e honestidade quando algo não está pronto para escalar.
+        </p>
+      </section>
+
+      <section aria-labelledby="valores-heading">
+        <h2 id="valores-heading" class="text-xl font-semibold text-white">
+          Valores
+        </h2>
+        <ul class="mt-6 space-y-6">
+          {
+            valores.map((v) => (
+              <li>
+                <h3 class="font-medium text-accent">{v.titulo}</h3>
+                <p class="mt-1 text-sm leading-relaxed text-silver-400">
+                  {v.texto}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+
+    <section
+      class="mt-20 rounded-2xl border border-white/10 bg-navy-900/40 p-8 lg:p-10"
+      aria-labelledby="equipe-heading"
+    >
+      <h2 id="equipe-heading" class="text-xl font-semibold text-white">
+        Evolua na prática
+      </h2>
+      <p class="mt-4 max-w-2xl text-sm leading-relaxed text-silver-400">
+        Por trás da Evolua Digital há uma equipe enxuta e especializada, próxima
+        do cliente e focada em resultado. Cada projeto começa com escuta ativa e
+        diagnóstico — <strong class="font-medium text-silver-200"
+          >inclusive o gratuito</strong
+        > — para não perder tempo de nenhum dos lados.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/contato"
+          class="inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
+        >
+          Solicitar diagnóstico gratuito
+        </a>
+        <a
+          href="/insights"
+          class="inline-flex rounded-lg border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-accent/40 hover:bg-white/10"
+        >
+          Ver insights
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

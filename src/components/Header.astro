@@ -1,0 +1,110 @@
+---
+import BrandMark from './BrandMark.astro';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const links = [
+  { href: '/', label: 'Início' },
+  { href: '/servicos', label: 'Serviços' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/sobre', label: 'Sobre' },
+  { href: '/resultados', label: 'Resultados' },
+  { href: '/contato', label: 'Contato' },
+] as const;
+
+function isActive(href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-white/5 bg-navy-950/85 backdrop-blur-md"
+>
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 md:gap-4 lg:px-8"
+  >
+    <a
+      href="/"
+      class="min-w-0 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      <BrandMark />
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Principal">
+      {
+        links.map(({ href, label }) => (
+          <a
+            href={href}
+            class:list={[
+              'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+              isActive(href)
+                ? 'bg-white/10 text-white'
+                : 'text-silver-300 hover:bg-white/5 hover:text-white',
+            ]}
+            aria-current={isActive(href) ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href="/contato"
+      class="hidden rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright md:inline-flex"
+    >
+      Diagnóstico grátis
+    </a>
+
+    <details class="group relative md:hidden">
+      <summary
+        class="flex cursor-pointer list-none items-center gap-2 rounded-lg border border-white/10 bg-navy-800/80 px-3 py-2 text-sm font-medium text-silver-100 marker:hidden"
+      >
+        <span class="sr-only">Abrir menu</span>
+        <svg
+          class="h-5 w-5 text-accent"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        Menu
+      </summary>
+      <nav
+        class="absolute right-0 top-full z-50 mt-2 w-56 rounded-xl border border-white/10 bg-navy-900/95 p-2 shadow-xl backdrop-blur-md"
+        aria-label="Mobile"
+      >
+        {
+          links.map(({ href, label }) => (
+            <a
+              href={href}
+              class:list={[
+                'block rounded-lg px-3 py-2.5 text-sm font-medium',
+                isActive(href)
+                  ? 'bg-accent/15 text-white'
+                  : 'text-silver-300 hover:bg-white/5 hover:text-white',
+              ]}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          ))
+        }
+        <a
+          href="/contato"
+          class="mt-2 block rounded-lg bg-accent px-3 py-2.5 text-center text-sm font-semibold text-navy-950"
+        >
+          Diagnóstico grátis
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>

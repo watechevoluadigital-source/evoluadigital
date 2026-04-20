@@ -1,0 +1,83 @@
+---
+const faqs = [
+  {
+    pergunta: 'O diagnóstico gratuito realmente é gratuito? O que eu recebo?',
+    resposta:
+      'Sim. Você envia contexto (formulário ou WhatsApp) e retornamos com leitura objetiva do seu estágio, prioridades sugeridas e se faz sentido avançar para proposta paga. Não há pegadinha — é a porta de entrada para alinhar expectativas dos dois lados.',
+  },
+  {
+    pergunta: 'Quanto tempo até ver resultados em mídia pago?',
+    resposta:
+      'Depende do seu funil, ticket e sazonalidade. Em geral, as primeiras leituras úteis aparecem em poucas semanas; otimização sólida e escala costumam exigir ciclos de teste de 60–90 dias. Na conversa inicial explicamos expectativas realistas para o seu caso.',
+  },
+  {
+    pergunta: 'Vocês só gerenciam tráfego ou também fazem estratégia e criativos?',
+    resposta:
+      'Trabalhamos de forma integrada: estratégia de mídia, orientação de mensagem, criativos (brief e iterações) e páginas quando faz parte do escopo. O objetivo é alinhar investimento, oferta e jornada — não rodar anúncio solto.',
+  },
+  {
+    pergunta: 'Como são os relatórios e a comunicação?',
+    resposta:
+      'Combinamos ritmo de updates (ex.: semanal ou quinzenal) e relatórios com métricas que importam para o negócio — não só impressões e cliques. Você sabe o que mudou, o que testamos em seguida e o que recomendamos.',
+  },
+  {
+    pergunta: 'Atendem o meu segmento (e-commerce, serviços, B2B)?',
+    resposta:
+      'Atuamos com diferentes modelos de negócio. O que importa é encaixe de objetivo, orçamento e maturidade digital. Se não for o momento certo para parceria, somos diretos — prefiro honestidade a promessa vazia.',
+  },
+  {
+    pergunta: 'Como funciona contrato e investimento em mídia?',
+    resposta:
+      'O fee da agência e o investimento em plataformas (mídia) são tratados de forma transparente. Na proposta deixamos claro escopo, entregáveis e o que é nosso trabalho versus budget de anúncios.',
+  },
+] as const;
+---
+
+<section
+  class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8"
+  aria-labelledby="faq-heading"
+>
+  <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+    Dúvidas frequentes
+  </p>
+  <h2
+    id="faq-heading"
+    class="mt-2 max-w-2xl text-2xl font-bold tracking-tight text-white sm:text-3xl"
+  >
+    Perguntas que costumam surgir antes de fechar
+  </h2>
+  <p class="mt-4 max-w-2xl text-silver-400">
+    Transparência antes do contrato — padrão comum nas agências que priorizam
+    relacionamento de longo prazo.
+  </p>
+  <div class="mx-auto mt-12 max-w-3xl">
+    {
+      faqs.map((item) => (
+        <details class="group border-b border-white/10 first:border-t py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-white focus-visible:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <span>{item.pergunta}</span>
+            <span
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent transition group-open:rotate-180"
+              aria-hidden="true"
+            >
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </span>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-silver-400">{item.resposta}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>

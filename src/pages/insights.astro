@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+/** Troque por artigos reais (MDX, CMS ou páginas estáticas) quando o blog estiver ativo. */
+const artigos = [
+  {
+    titulo: 'Como saber se seu custo por lead está “caro demais”',
+    resumo:
+      'Checklist rápido: ticket, margem, taxa de fechamento e janela de payback — sem achismo.',
+    tag: 'Performance',
+    emBreve: true,
+  },
+  {
+    titulo: 'Landing lenta: o que medir antes de culpar o tráfego',
+    resumo:
+      'LCP, oferta acima da dobra e uma única ação principal — o básico que ainda derruba conversão.',
+    tag: 'CRO',
+    emBreve: true,
+  },
+  {
+    titulo: 'Conteúdo para quem vende B2B: educar sem esfriar o funil',
+    resumo:
+      'Formatos que alimentam MQL sem abandonar a mensagem de venda.',
+    tag: 'Conteúdo',
+    emBreve: true,
+  },
+] as const;
+---
+
+<Layout
+  title="Insights"
+  description="Artigos e insights sobre tráfego pago, conteúdo, landing pages e performance — Evolua Digital."
+>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <header class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+        Conteúdo estratégico
+      </p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-white">Insights</h1>
+      <p class="mt-4 text-lg text-silver-400">
+        Conteúdo para atrair tráfego, mostrar método e ajudar você a decidir com
+        clareza. Novos textos entram aqui conforme publicarmos — enquanto isso,
+        o <a class="font-medium text-accent hover:text-accent-bright" href="/contato"
+          >diagnóstico gratuito</a
+        > já adianta muito da conversa.
+      </p>
+    </header>
+
+    <ul class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        artigos.map((a) => (
+          <li class="flex flex-col rounded-2xl border border-white/10 bg-navy-900/35 p-6">
+            <span class="text-xs font-semibold uppercase tracking-wider text-accent">
+              {a.tag}
+            </span>
+            <h2 class="mt-3 text-lg font-semibold text-white">{a.titulo}</h2>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-silver-400">
+              {a.resumo}
+            </p>
+            {a.emBreve ? (
+              <p class="mt-4 text-xs font-medium uppercase tracking-wider text-silver-500">
+                Em breve
+              </p>
+            ) : (
+              <a
+                href="#"
+                class="mt-4 text-sm font-semibold text-accent hover:text-accent-bright"
+              >
+                Ler artigo
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+
+    <section
+      class="mt-20 rounded-2xl border border-white/10 bg-navy-900/40 p-8 text-center lg:p-10"
+      aria-labelledby="insights-cta-heading"
+    >
+      <h2 id="insights-cta-heading" class="text-xl font-semibold text-white">
+        Quer o diagnóstico antes do próximo artigo?
+      </h2>
+      <p class="mx-auto mt-2 max-w-lg text-sm text-silver-400">
+        Leva poucos minutos para enviar o contexto — você recebe prioridades
+        objetivas para o seu marketing.
+      </p>
+      <a
+        href="/contato"
+        class="mt-6 inline-flex rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
+      >
+        Solicitar diagnóstico gratuito
+      </a>
+    </section>
+  </div>
+</Layout>

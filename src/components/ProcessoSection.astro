@@ -1,0 +1,58 @@
+---
+const etapas = [
+  {
+    passo: '01',
+    titulo: 'Diagnóstico',
+    texto:
+      'Entendemos meta, público, oferta e o que já foi testado — dados e contexto antes de qualquer anúncio.',
+  },
+  {
+    passo: '02',
+    titulo: 'Plano & execução',
+    texto:
+      'Estratégia de mídia, mensagem, criativos e páginas no ar com rastreio correto desde o primeiro dia.',
+  },
+  {
+    passo: '03',
+    titulo: 'Medir & otimizar',
+    texto:
+      'Relatórios acionáveis, testes contínuos, escala do que funciona e corte do desperdício.',
+  },
+] as const;
+---
+
+<section
+  class="border-b border-white/5 bg-navy-900/20 px-4 py-20 sm:px-6 lg:px-8"
+  aria-labelledby="processo-heading"
+>
+  <div class="mx-auto max-w-6xl">
+    <p class="text-sm font-semibold uppercase tracking-wider text-accent">
+      Como funciona
+    </p>
+    <h2
+      id="processo-heading"
+      class="mt-2 max-w-2xl text-2xl font-bold tracking-tight text-white sm:text-3xl"
+    >
+      Três movimentos — do caos ao que escala
+    </h2>
+    <p class="mt-4 max-w-2xl text-silver-400">
+      Funil claro: problema entendido → solução no ar → resultado afinado com método.
+    </p>
+    <ol class="mt-14 grid gap-6 md:grid-cols-3">
+      {
+        etapas.map((e) => (
+          <li class="rounded-2xl border border-white/10 bg-navy-950/50 p-6">
+            <span
+              class="text-xs font-bold tabular-nums text-accent/80"
+              aria-hidden="true"
+            >
+              {e.passo}
+            </span>
+            <h3 class="mt-2 text-lg font-semibold text-white">{e.titulo}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-silver-400">{e.texto}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
