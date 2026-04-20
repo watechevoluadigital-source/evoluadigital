@@ -7,13 +7,13 @@ import FaqAgencia from '../components/FaqAgencia.astro';
 import CtaBand from '../components/CtaBand.astro';
 import ProvaSocial from '../components/ProvaSocial.astro';
 import LeadMagnet from '../components/LeadMagnet.astro';
-import { whatsappUrl } from '../data/contato';
+import { telefoneDisplay, whatsappUrl } from '../data/contato';
 import { withBase } from '../utils/paths';
 
 const heroChecks = [
   'Tráfego pago (Meta, Google) com foco em conversão e CAC',
-  'Conteúdo e redes alinhados à sua oferta — não genérico',
-  'Relatórios que a diretoria entende — não só vanity metrics',
+  'Conteúdo e redes alinhados à sua oferta — sem generalidades',
+  'Relatórios que a diretoria entende — não apenas métricas de vaidade',
 ] as const;
 
 const segmentos = [
@@ -21,6 +21,15 @@ const segmentos = [
   'Serviços & B2B',
   'Marcas locais',
   'Profissionais liberais',
+] as const;
+
+const servicosRapidos = [
+  'Tráfego pago',
+  'Social media',
+  'Flyer de divulgação',
+  'Logomarca',
+  'Cardápio digital',
+  'Promoções sazonais',
 ] as const;
 ---
 
@@ -55,8 +64,8 @@ const segmentos = [
         class="mt-5 max-w-2xl text-[0.98rem] font-medium leading-relaxed text-silver-300 sm:text-lg motion-safe:animate-fade-up motion-safe:[animation-delay:100ms]"
       >
         <strong class="font-semibold text-silver-200">Para quem:</strong> e-commerce,
-        serviços, B2B e marcas locais que precisam de previsibilidade e lead
-        melhor — não só post bonito.
+        serviços, B2B e marcas locais que precisam de previsibilidade e de
+        leads melhores — não apenas de posts bonitos.
       </p>
       <p
         class="mt-3 max-w-2xl text-sm leading-relaxed text-silver-500 motion-safe:animate-fade-up motion-safe:[animation-delay:110ms]"
@@ -111,7 +120,7 @@ const segmentos = [
           rel="noopener noreferrer"
           class="inline-flex w-full items-center justify-center rounded-xl border border-[#25D366]/35 bg-[#25D366]/10 px-6 py-3.5 text-base font-semibold text-[#25D366] transition hover:bg-[#25D366]/20 sm:w-auto"
         >
-          Falar no WhatsApp
+          Chamar no WhatsApp
         </a>
       </div>
     </div>
@@ -145,7 +154,47 @@ const segmentos = [
       </ul>
       <p class="mx-auto mt-6 max-w-2xl text-center text-xs text-silver-500">
         Cada projeto nasce do seu estágio: quem começa no digital ou quem já
-        investe em anúncio e precisa de mais eficiência.
+        investe em anúncios e precisa de mais eficiência.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-b border-white/5 py-10 sm:py-12" aria-labelledby="entregas-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            O que a equipe entrega
+          </p>
+          <h2 id="entregas-heading" class="mt-2 text-2xl font-bold text-white sm:text-3xl">
+            Do tráfego pago ao material criativo que sustenta a divulgação
+          </h2>
+          <p class="mt-3 text-sm leading-relaxed text-silver-400">
+            A operação combina frente estratégica com peças práticas para acelerar
+            campanhas, presença digital e comunicação comercial.
+          </p>
+        </div>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex rounded-lg border border-[#25D366]/35 bg-[#25D366]/10 px-5 py-3 text-sm font-semibold text-[#25D366] transition hover:bg-[#25D366]/20"
+        >
+          Orçar pelo WhatsApp
+        </a>
+      </div>
+
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          servicosRapidos.map((item) => (
+            <li class="rounded-xl border border-white/10 bg-navy-900/35 px-4 py-3 text-sm font-medium text-silver-200">
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-4 text-xs text-silver-500">
+        Contato comercial direto: {telefoneDisplay}
       </p>
     </div>
   </section>
@@ -153,9 +202,9 @@ const segmentos = [
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
     <CtaBand
       titulo="Quer gerar mais leads com previsibilidade?"
-      texto="Peça o diagnóstico gratuito — devolvemos com prioridades claras, sem enrolação."
+      texto="Peça o diagnóstico gratuito e receba prioridades claras, sem enrolação."
       primario={{ href: withBase('/contato'), label: 'Quero diagnóstico gratuito' }}
-      secundario={{ href: withBase('/servicos'), label: 'Ver serviços' }}
+      secundario={{ href: whatsappUrl, label: 'Falar no WhatsApp', external: true }}
     />
   </div>
 
@@ -164,7 +213,7 @@ const segmentos = [
     aria-labelledby="pilares-heading"
   >
     <h2 id="pilares-heading" class="text-2xl font-bold text-white sm:text-3xl">
-      Benefícios reais — não jargão de slide
+      Benefícios reais — sem jargão de apresentação
     </h2>
     <p class="mt-3 max-w-2xl text-silver-400">
       O que muda no seu dia a dia quando o marketing deixa de ser achismo e
@@ -209,9 +258,9 @@ const segmentos = [
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
     <CtaBand
       titulo="Prefere falar com um especialista agora?"
-      texto="Chame no WhatsApp ou envie o formulário — respondemos em até 1 dia útil (meta comercial)."
-      primario={{ href: whatsappUrl, label: 'Falar no WhatsApp', external: true }}
-      secundario={{ href: withBase('/contato'), label: 'Ir para o formulário' }}
+      texto="Envie o formulário e receba uma devolutiva inicial com prioridades e próximos passos."
+      primario={{ href: whatsappUrl, label: 'Chamar no WhatsApp', external: true }}
+      secundario={{ href: withBase('/resultados'), label: 'Ver resultados' }}
     />
   </div>
 

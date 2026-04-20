@@ -1,26 +1,25 @@
 ---
-/**
- * Depoimentos: substitua por citações reais com autorização.
- * Números: só use métricas verificáveis; abaixo são âncoras de credibilidade sem inflar resultado.
- */
 const credibilidade = [
   { label: 'Metodologia', valor: '3 etapas', hint: 'Diagnóstico → Plano & execução → Medir & otimizar' },
-  { label: 'Foco', valor: 'CAC & conversão', hint: 'Indicadores ligados ao negócio, não só vaidade' },
+  { label: 'Foco', valor: 'CAC & conversão', hint: 'Indicadores ligados ao negócio, não apenas métricas de vaidade' },
   { label: 'Comunicação', valor: 'Relatórios claros', hint: 'Você sabe o que mudou e o que vem a seguir' },
 ] as const;
 
-const depoimentos = [
+const pilares = [
   {
+    titulo: 'Critério antes da escala',
     texto:
-      '“Organizaram campanhas e mensagem da landing na mesma linha. Pela primeira vez conseguimos enxergar o que puxar e o que cortar.”',
-    autor: 'Nome do cliente',
-    papel: 'Responsável comercial — substitua após autorização',
+      'Antes de aumentar investimento, organizamos mensagem, mensuração e página. Crescimento sem base custa caro.',
   },
   {
+    titulo: 'Leitura orientada ao negócio',
     texto:
-      '“Resposta rápida e números que fazem sentido para a diretoria. Nada de relatório só com impressão.”',
-    autor: 'Nome do cliente',
-    papel: 'Marketing — substitua após autorização',
+      'Acompanhar cliques é pouco. O que importa é entender impacto em lead, venda, eficiência e próximos passos.',
+  },
+  {
+    titulo: 'Execução com proximidade',
+    texto:
+      'Estratégia boa precisa virar ação. Por isso, mantemos o acompanhamento próximo, com ajustes e prioridades claras.',
   },
 ] as const;
 ---
@@ -40,8 +39,9 @@ const depoimentos = [
       Confiança antes do contrato
     </h2>
     <p class="mt-3 max-w-2xl text-sm text-silver-500">
-      Depoimentos e logos reais convertem mais — abaixo está o formato ideal; troque pelos seus
-      cases assim que tiver permissão.
+      Para esta apresentação, mantivemos a prova social em um formato elegante e
+      honesto. Cases, depoimentos e marcas reais entram na versão final com
+      autorização e contexto adequados.
     </p>
 
     <ul
@@ -60,40 +60,26 @@ const depoimentos = [
       }
     </ul>
 
-    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
       {
-        depoimentos.map((d) => (
-          <figure class="rounded-2xl border border-white/10 bg-navy-900/35 p-6">
-            <blockquote>
-              <p class="text-sm leading-relaxed text-silver-200">{d.texto}</p>
-            </blockquote>
-            <figcaption class="mt-4 border-t border-white/10 pt-4 text-sm">
-              <span class="font-semibold text-white">{d.autor}</span>
-              <span class="mt-0.5 block text-xs text-silver-500">{d.papel}</span>
-            </figcaption>
-          </figure>
+        pilares.map((item) => (
+          <article class="rounded-2xl border border-white/10 bg-navy-900/35 p-6">
+            <h3 class="text-base font-semibold text-white">{item.titulo}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-silver-300">{item.texto}</p>
+          </article>
         ))
       }
     </div>
 
-    <div class="mt-12">
-      <p class="text-center text-xs font-semibold uppercase tracking-wider text-silver-500">
-        Marcas e negócios com os quais trabalhamos
+    <div class="mt-12 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-wider text-silver-500">
+        Espaço reservado para prova social real
       </p>
-      <ul
-        class="mt-6 flex flex-wrap items-center justify-center gap-4"
-        aria-label="Logotipos de clientes — placeholders"
-      >
-        {
-          [1, 2, 3, 4].map((n) => (
-            <li class="flex h-14 w-28 items-center justify-center rounded-lg border border-dashed border-white/15 bg-white/[0.03] text-[10px] font-medium uppercase tracking-wide text-silver-600 sm:w-32">
-              Logo {n}
-            </li>
-          ))
-        }
-      </ul>
-      <p class="mt-4 text-center text-xs text-silver-600">
-        Substitua pelos logos reais quando possível — isso aumenta conversão de forma mensurável.
+      <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-silver-500">
+        Na versão operacional, esta área pode receber depoimentos, números,
+        marcas atendidas ou cases autorizados. Para a reunião comercial, o foco
+        está na clareza da proposta, na estrutura do funil e na experiência do
+        site.
       </p>
     </div>
   </div>

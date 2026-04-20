@@ -1,43 +1,14 @@
 ---
-import SocialLink from './SocialLink.astro';
-import { whatsappUrl } from '../data/contato';
+import {
+  emailContato,
+  enderecoContato,
+  horarioAtendimento,
+  telefoneDisplay,
+  whatsappUrl,
+} from '../data/contato';
 import { withBase } from '../utils/paths';
 
 const year = new Date().getFullYear();
-
-/** Troque pelos links reais das redes do cliente. */
-const redesSociais = [
-  {
-    network: 'x' as const,
-    href: 'https://x.com/',
-    label: 'Evolua Digital no X (Twitter)',
-  },
-  {
-    network: 'facebook' as const,
-    href: 'https://www.facebook.com/',
-    label: 'Evolua Digital no Facebook',
-  },
-  {
-    network: 'instagram' as const,
-    href: 'https://www.instagram.com/',
-    label: 'Evolua Digital no Instagram',
-  },
-  {
-    network: 'tiktok' as const,
-    href: 'https://www.tiktok.com/',
-    label: 'Evolua Digital no TikTok',
-  },
-  {
-    network: 'youtube' as const,
-    href: 'https://www.youtube.com/',
-    label: 'Evolua Digital no YouTube',
-  },
-  {
-    network: 'whatsapp' as const,
-    href: whatsappUrl,
-    label: 'Falar com a Evolua Digital no WhatsApp',
-  },
-];
 ---
 
 <footer class="border-t border-white/5 bg-navy-900/50">
@@ -52,12 +23,11 @@ const redesSociais = [
         Marketing digital com foco em performance, marca e crescimento
         sustentável para o seu negócio.
       </p>
-      <a
-        href={withBase('/contato')}
-        class="mt-4 inline-flex rounded-lg bg-accent px-4 py-2 text-xs font-semibold text-navy-950 shadow-glow transition hover:bg-accent-bright"
-      >
-        Diagnóstico gratuito
-      </a>
+      <div class="mt-4 space-y-2 text-sm text-silver-400">
+        <p>{telefoneDisplay}</p>
+        <p>{emailContato}</p>
+        <p>{enderecoContato}</p>
+      </div>
     </div>
     <div
       class="mt-8 flex flex-col gap-8 lg:mt-0 lg:items-end"
@@ -79,29 +49,21 @@ const redesSociais = [
           >Contato</a
         >
       </nav>
-      <div class="w-full lg:w-auto">
-        <p
-          class="mb-3 text-center text-xs font-medium uppercase tracking-wider text-silver-500 lg:text-right"
-          id="footer-social-heading"
-        >
-          Redes sociais
+      <div class="w-full max-w-sm lg:max-w-xs lg:text-right">
+        <p class="text-xs font-semibold uppercase tracking-wider text-silver-500">
+          Atendimento
         </p>
-        <ul
-          class="flex flex-wrap justify-center gap-3 lg:justify-end"
-          aria-labelledby="footer-social-heading"
+        <p class="mt-2 text-sm leading-relaxed text-silver-500">
+          {horarioAtendimento}
+        </p>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex rounded-lg border border-[#25D366]/35 bg-[#25D366]/10 px-4 py-2 text-xs font-semibold text-[#25D366] transition hover:bg-[#25D366]/20"
         >
-          {
-            redesSociais.map((r) => (
-              <li>
-                <SocialLink
-                  href={r.href}
-                  label={r.label}
-                  network={r.network}
-                />
-              </li>
-            ))
-          }
-        </ul>
+          Chamar no WhatsApp
+        </a>
       </div>
     </div>
   </div>
